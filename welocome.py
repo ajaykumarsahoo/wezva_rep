@@ -1,2 +1,2 @@
 print("Welcome to DevOps class")
-Print("Hello World !!!")
+Print("Hello World !!")
