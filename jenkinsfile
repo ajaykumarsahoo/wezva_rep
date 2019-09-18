@@ -1,0 +1,44 @@
+pipeline {
+  agent none
+  
+  stages
+  {
+   stage('checkout')
+    {
+    agent { label 'test' }
+    steps {
+     git branch: 'master', url: 'https://github.com/ajaykumarsahoo/wezva_rep.git'
+   }
+  }
+
+  stage('Build War')
+   {
+   agent { label 'test' }
+    steps {
+     sh "mvn clean package"
+   }
+  }
+
+  stage('Upload Artifactory')
+   {
+   agent { label 'test' }
+    steps {
+     scrips {
+
+      /*Define the Artifactory Server details*/
+
+     def server= Artifactory.server 'myartifactory'
+     def uploadSpec = """{
+           "files": [{
+           "pattern": "target/samplewar.war",
+           "target": "demo"
+            }]
+    }"""
+    
+    /* Upload the war to Artifactory repo*/
+
+   }
+  }
+ }
+ } 
+}
