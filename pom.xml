@@ -79,9 +79,9 @@
              <argument>--version</argument>
            </arguments>
           </configuration>
-         </plugin>
-         <plugin>
-          <groupId>org.jacoco</groupId>
+        </plugin>
+        <plugin>
+         <groupId>org.jacoco</groupId>
           <artifactId>jacoco-maven-plugin</artifactId>
           <version>0.8.3</version>
           <configuration>
@@ -89,21 +89,21 @@
            <dataFile>${basedir}/target/coverage-reports/jacoco-unit.exec</dataFile>
           </configuration>
           <executions>
-          <execution>
-           <id>jacoco-initialize</id>
-           <goals>
-            <goal>prepare-agent</goal>
-           </goals>
-          </execution>
-          <execution>
-           <id>jacoco-site</id>
-           <phase>package</phase>
-           <goals>
-            <goal>report</goal>
-           </goals>
-          </execution>
+           <execution>
+            <id>jacoco-initialize</id>
+             <goals>
+              <goal>prepare-agent</goal>
+             </goals>
+           </execution>
+           <execution>
+            <id>jacoco-site</id>
+            <phase>package</phase>
+            <goals>
+             <goal>report</goal>
+            </goals>
+           </execution>
           </executions>
-         </plugin>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
